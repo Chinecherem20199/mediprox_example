@@ -1,17 +1,40 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
-class WelcomeOnboardingScreen extends StatelessWidget {
+import '../onboarding_screen.dart';
+
+class WelcomeOnboardingScreen extends StatefulWidget {
   const WelcomeOnboardingScreen({super.key});
 
+  @override
+  State<WelcomeOnboardingScreen> createState() => _WelcomeOnboardingScreenState();
+}
+
+class _WelcomeOnboardingScreenState extends State<WelcomeOnboardingScreen> {
+
+@override
+void initState() {
+    // TODO: implement initState
+    super.initState();
+    Timer(Duration(seconds: 10), () {
+      Navigator.pushNamed(
+        context, "/onboarding",
+        
+      );
+    });
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
-          Container(
+          SizedBox(
+             height: MediaQuery.of(context).size.height * 0.7,
             width: double.infinity,
-            height: 500,
-            color: Colors.white,
+            // height: 500,
+            // color: Colors.white,
             child: Stack(
               children: [
                 Positioned(
@@ -153,13 +176,13 @@ class WelcomeOnboardingScreen extends StatelessWidget {
             ),
           ),
           Container(
-            width: MediaQuery.of(context).size.width,
+            padding: const EdgeInsets.only(top: 10),
+             height: MediaQuery.of(context).size.height * 0.3,
             alignment: Alignment.center,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
               children: const [
                 Text(
+                  textAlign: TextAlign.center,
                   "Welcome to MediProx! 👋",
                   style: TextStyle(
                     // fontFamily: "Poppins",
@@ -173,6 +196,7 @@ class WelcomeOnboardingScreen extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
+                  textAlign: TextAlign.center,
                   "The best online doctor appointment & consultation app of the century for your health and medical needs!",
                   style: TextStyle(
                     // fontFamily: "Poppins",

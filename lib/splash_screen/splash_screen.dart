@@ -17,13 +17,9 @@ class _SplashScreenState extends State<SplashScreen> {
     // TODO: implement initState
     super.initState();
     Timer(Duration(seconds: 3), () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) {
-            return WelcomeOnboardingScreen();
-          },
-        ),
+      Navigator.pushNamed(
+        context, "/welcome",
+        
       );
     });
   }
@@ -35,11 +31,6 @@ class _SplashScreenState extends State<SplashScreen> {
         width: double.infinity,
         height: double.infinity,
         decoration: const BoxDecoration(color: Colors.white
-            // gradient: LinearGradient(
-            //   begin: Alignment.topRight,
-            //   end: Alignment.bottomLeft,
-            //   colors: [Color(0xff0079FF), Color.fromARGB(255, 99, 129, 163)],
-            // ),
             ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,

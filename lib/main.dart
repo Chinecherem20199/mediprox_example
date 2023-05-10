@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mediprox_example/splash_screen/splash_screen.dart';
+import 'package:mediprox_example/onboarding_screen.dart';
 
+import 'package:mediprox_example/splash_screen/welcome_onboarding.dart';
+
+var routes = <String, WidgetBuilder>{
+   "/welcome" : (BuildContext context) => const WelcomeOnboardingScreen(),
+  "/onboarding": (BuildContext context) => const OnBoardingScreen()
+};
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
@@ -16,9 +23,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: const SplashScreen(),
+      routes: routes,
     );
   }
 }
